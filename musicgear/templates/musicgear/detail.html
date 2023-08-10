@@ -11,6 +11,10 @@
       <p>Model: {{ gear.model }}</p>
       <p>Category: {{ gear.category }}</p>
     </div>
+    <div class="card-action">
+      <a href="{% url 'gear_update' gear.id %}">Edit</a>
+      <a href="{% url 'gear_delete' gear.id %}">Delete</a>
+    </div>
   </div>
 
 {% endblock %}

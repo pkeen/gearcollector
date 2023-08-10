@@ -1,12 +1,8 @@
 from django.shortcuts import render
+from django.views.generic import CreateView, UpdateView, DeleteView
 from .models import Gear
 
 # Create your views here.
-
-# gear = [
-#     {'make': 'The Loar', 'model': 'LH-204 Brownstone', 'category': 'guitar'}
-# ]
-
 
 def home(request):
     return render(request, 'home.html')
@@ -22,7 +18,17 @@ def gear_index(request):
 
 def gear_detail(request, gear_id):
     gear = Gear.objects.get(id=gear_id)
-    return render(request, 'gear/detail.html', {
+    return render(request, 'musicgear/detail.html', {
         'gear': gear
     })
 
+class GearCreateView(CreateView):
+    model = Gear
+    fields = '__all__'
+
+class GearUpdate(UpdateView):
+    model = Gear
+    fields = '__all__'
+
+class GearDelete(DeleteView):
+    model = Gear
