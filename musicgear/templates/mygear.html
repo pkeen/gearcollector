@@ -6,10 +6,12 @@
 {% for g in gear %}
 
     <div class="card">
-        <div class="card-content">
-            <span class="card-title"> {{ g.make }} | {{ g.model }} </span>
-            <p> Category: {{ g.category}}</p>
-        </div>
+        <a href="{% url 'detail' g.id %}">
+            <div class="card-content">
+                <span class="card-title"> {{ g.make }} | {{ g.model }} </span>
+                <p> Category: {{ g.category}}</p>
+            </div>
+        </a>
     </div>
 
 {% endfor %}
