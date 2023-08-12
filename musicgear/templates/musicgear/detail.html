@@ -9,12 +9,22 @@
       <!-- <span class="card-title">{{ cat.name }}</span> -->
       <p>Make: {{ gear.make }}</p>
       <p>Model: {{ gear.model }}</p>
-      <p>Category: {{ gear.category }}</p>
+      <p>Categories: {% for c in gear.category_set.all %} 
+        {{c.get_category_display}} 
+      {% endfor %}</p>
+      <!-- <p>Category: {{ gear.category_set }}</p> -->
+      <ul>Retailers:
+        {% for retailer in gear.retailer_set.all %}
+        <li>
+          {{ retailer.name }}
+        </li>
+        {% endfor %}
+      </ul>
     </div>
     <div class="card-action">
       <a href="{% url 'gear_update' gear.id %}">Edit</a>
       <a href="{% url 'gear_delete' gear.id %}">Delete</a>
     </div>
-  </div>
+</div>
 
 {% endblock %}

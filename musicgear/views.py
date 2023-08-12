@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from django.views.generic import CreateView, UpdateView, DeleteView
-from .models import Gear
+from django.views.generic import CreateView, UpdateView, DeleteView, ListView, DetailView
+from .models import Gear, Retailer
 
 # Create your views here.
 
@@ -32,3 +32,16 @@ class GearUpdate(UpdateView):
 
 class GearDelete(DeleteView):
     model = Gear
+
+class RetailerList(ListView):
+    model = Retailer
+
+class RetailerCreate(CreateView):
+    model = Retailer
+    fields = ['name']
+
+class RetailerDetail(DetailView):
+    model = Retailer
+
+class RetailerDelete(DeleteView):
+    model = Retailer

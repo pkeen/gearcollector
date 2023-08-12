@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Retailer detail</h1>
+<h2>{{ retailer.name }}</h2>
+<a href="{% url 'retailer_delete' retailer.id %}">Delete</a>
+
+{% endblock %}

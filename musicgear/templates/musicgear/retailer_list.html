@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Retailers</h1>
+
+<ul>
+{% for retailer in retailer_list %}
+
+    <li>{{ retailer.name }}</li>
+    
+    {% endfor %}
+</ul>
+<a href="{% url 'retailer_create' %}">Add Retailer</a>
+
+{% endblock %}
